@@ -8,6 +8,8 @@ computer = t[randint (0,2)]
 
 player = False
 
+loop = False
+
 while player == False:
     player = input ("Rock, Paper, Scissors?")
     if player == computer:
@@ -30,17 +32,18 @@ while player == False:
     else:
         print ("I cannot understand you! Please ensure that you have proper capitalization!")
     
-player = True
+    loop = False
 
-while player == True:
-    player = input ("Continue? Yes or No?")
-    if player == "Yes":
-        player = False
-    elif player == "No":
-        break
-    else:
-        print ("I cannot understand you! Please ensure that you have proper capitalization!")
-    
+    while loop == False:
+        player = input ("Continue? Yes or No?")
+        if player == "Yes":
+            player = False
+            loop = True
+        elif player == "No":
+            break
+        else:
+            print ("I cannot understand you! Please ensure that you have proper capitalization!")
+            player = False
    
             
     
