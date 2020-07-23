@@ -21,21 +21,21 @@ while verify == 1:
             print ("Tie")
         elif player == "Rock":
             if computer == "Paper":
-                print ("YOU LOSE NERD! Paper covers Rock up")
+                print ("You lose! Paper covers Rock up")
                 computerwin = computerwin + 1
             else:
                 print ("You win! Rock crushes Scissors")
                 playerwin = playerwin + 1
         elif player == "Paper":
             if computer == "Scissors":
-                print ("YOU LOSE NERD! Scissors cuts right through Paper")
+                print ("You lose! Scissors cuts right through Paper")
                 computerwin = computerwin + 1
             else:
                 print ("You win! Paper covers Rock up")
                 playerwin = playerwin + 1
         elif player == "Scissors":
             if computer == "Rock":
-                print ("YOU LOSE NERD! Rock crushes Scissors")
+                print ("You lose! Rock crushes Scissors")
                 computerwin = computerwin + 1
             else:
                 print ("You win! Scissors cuts right through Paper")
