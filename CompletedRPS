@@ -1,0 +1,79 @@
+from random import randint
+
+selections = ("Rock", "Paper", "Scissors")
+
+verify = 1
+
+counter = 1
+while verify == 1:
+    playerwin = 0
+    computerwin = 0
+    while True:
+        rounds = (input("How many rounds would you like to play: 1-10?"))
+        if rounds.isdigit():
+            rounds = int(rounds)
+        else:
+            print ("Please type out an integer.")
+            break
+        while rounds < 1 or rounds > 10:
+            rounds = int(input("How many rounds would you like to play: 1-10?"))
+        counter = 1
+        while counter >= 1:
+            computer = selections[randint (0,2)]
+            print ("Round:")
+            print (counter)
+            player = input("Rock, Paper, Scissors?")
+            if player.upper() == computer.upper():
+                print ("Tie")
+            elif player.upper() == "ROCK":
+                if computer.upper() == "PAPER":
+                    print ("You lose! Paper covers Rock up")
+                    computerwin = computerwin + 1
+                else:
+                    print ("You win! Rock crushes Scissors")
+                    playerwin = playerwin + 1
+            elif player.upper() == "PAPER":
+                if computer.upper == "SCISSORS":
+                    print ("You lose! Scissors cuts right through Paper")
+                    computerwin = computerwin + 1
+                else:
+                    print ("You win! Paper covers Rock up")
+                    playerwin = playerwin + 1
+            elif player.upper() == "SCISSORS":
+                if computer.upper() == "ROCK":
+                    print ("You lose! Rock crushes Scissors")
+                    computerwin = computerwin + 1
+                else:
+                    print ("You win! Scissors cuts right through Paper")
+                    playerwin = playerwin + 1
+            else:
+                print ("I cannot understand you! Please type either Rock Paper or Scissors.")
+                counter = counter - 1
+            
+            counter = counter + 1
+        
+            print ("Player:")
+            print (playerwin)
+            print ("Computer:")
+            print (computerwin)
+            
+            while counter == rounds + 1:
+                verify = 0
+                if playerwin < computerwin:
+                    print ("Game over! Computer wins!")
+                elif playerwin == computerwin:
+                    print ("Game over! Tie!")
+                else:
+                    print ("Game over! Player wins!")
+                player = input ("Play again? Yes/No:")
+                if player.upper() == "YES":
+                    verify = 1
+                    counter = 0
+                    rounds = 0
+                elif player.upper() == "NO":
+                    counter = -1
+                    exit()
+                else:
+                    print ("I cannot understand you! Please ensure that you have proper capitalization!")
+                    counter = rounds + 1
+
