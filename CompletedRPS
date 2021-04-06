@@ -5,19 +5,37 @@ selections = ("Rock", "Paper", "Scissors")
 verify = 1
 
 counter = 1
+
+counter2 = 1
 while verify == 1:
     playerwin = 0
     computerwin = 0
     while True:
-        rounds = (input("How many rounds would you like to play: 1-10?"))
+        if counter2 == 1:
+            rounds = input("How many rounds would you like to play: 1-10?")
+        else:
+            rounds = input("Please enter an amount of rounds from 1-10.")
         if rounds.isdigit():
             rounds = int(rounds)
+            counter = 1
         else:
             print ("Please type out an integer.")
             break
         while rounds < 1 or rounds > 10:
-            rounds = int(input("How many rounds would you like to play: 1-10?"))
-        counter = 1
+            rounds = input("Please enter an amount of rounds from 1-10")
+            if rounds.isdigit():
+                rounds = int(rounds)
+                if rounds > 1 or rounds < 10:
+                    counter = 1
+                else:
+                    counter = 0
+                    counter2 = 2
+                    break
+            else:
+                print("Please type out an integer.")
+                counter2 = 1
+                counter = 0
+                break
         while counter >= 1:
             computer = selections[randint (0,2)]
             print ("Round:")
